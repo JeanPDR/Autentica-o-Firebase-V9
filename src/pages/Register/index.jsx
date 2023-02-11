@@ -65,7 +65,7 @@ const Register = () => {
             </form>
 
             <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
+              Already have an account? <NavLink to="/">Sign in</NavLink>
             </p>
           </div>
         </div>

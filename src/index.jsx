@@ -3,6 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'firebase.js';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import Register from './pages/Register';
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -62,7 +64,7 @@ const SignIn = () => {
             </form>
 
             <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
+              No account yet? <NavLink to="/register" >Sign up</NavLink>
             </p>
           </div>
         </section>
