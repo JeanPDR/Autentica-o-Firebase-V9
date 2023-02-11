@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home/';
 import Login from './pages/Login/';
 import Register from './pages/Register';
+
+import Driver from './pages/Driver';
+import Passenger from './pages/Passenger';
+import Admin from './pages/Admin';
+
+
+
+
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
