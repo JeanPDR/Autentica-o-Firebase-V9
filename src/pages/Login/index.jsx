@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { NavLink, useNavigate, Route } from 'react-router-dom';
+import { NavLink, useNavigate, useHistory } from 'react-router-dom';
 
 
 const Login = () => {
@@ -14,15 +14,28 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+
         const user = userCredential.user;
         navigate('/home');
         console.log(user);
       })
+
+      
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
+
+      if (email.endsWith('@driver.com')) {
+        window.location.href = '/driver';
+      } else if (email.endsWith('@passenger.com')) {
+        window.location.href = '/passenger';
+      } else if (email.endsWith('@admin.com')) {
+        window.location.href = '/admin';
+      }
+
+      
   };
 
   return (

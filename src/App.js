@@ -23,6 +23,10 @@ function App() {
             <Route exact path="/" element={<Login/>} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/driver" element={<Driver />} />
+            <Route path="/passenger" element={<Passenger />} />
+            <Route path="/admin" element={<Admin />} />
+            
           </Routes>
         </section>
       </div>
