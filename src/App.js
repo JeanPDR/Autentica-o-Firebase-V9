@@ -12,9 +12,9 @@ function App() {
         <section>
           <Routes>
             {' '}
-            <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route exact path="/" element={<Login/>} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </section>
       </div>
