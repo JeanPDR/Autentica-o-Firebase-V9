@@ -1,12 +1,33 @@
-import React from 'react';
+import { async } from '@firebase/util';
+import { collection, doc, getDocs } from 'firebase/firestore';
+import React, {useEffect, useReducer, useState} from 'react';
+import {db} from '../../firebase'
 
-const Driver = () => {
+
+
+  const Passenger = () => {
+    const [docs, setDocs] = useState([]);
+  
+    useEffect(() => {
+      const unsubscribe = db.collection('collection_1').onSnapshot((snapshot) => {
+        const documents = [];
+        snapshot.forEach((doc) => {
+          documents.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        setDocs(documents);
+      });
+      return () => unsubscribe();
+    }, []);
+  
     return (
-      <div>
-        <h1>Driver Screen</h1>
-        <p>Bem-vindo à tela do motorista.</p>
-      </div>
+      <ul>
+        {docs.map((doc) => (
+          <li key={doc.id}>{doc.nome}</li>
+        ))}
+      </ul>
     );
   };
-
-  export default Driver;
+  export default Passenger;
