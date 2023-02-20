@@ -4,7 +4,7 @@ import Login from './pages/Login/';
 import Register from './pages/Register';
 
 import Driver from './pages/Driver';
-import Passenger from './pages/Passenger';
+import Passenger from './pages/Passenger/index';
 import Admin from './pages/Admin';
 
 
