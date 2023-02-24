@@ -4,8 +4,6 @@ import {useState, useEffect} from 'react'
 import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
 import {db} from '../../firebase'
 import AddTask from './AddTask'
-import SolicitarViagemButton from './SolicitarViagemBtn';
-import SolicitarViagemScreen from './SolicitarViagemScreen';
 function TaskManager() {
 
   const [openAddModal, setOpenAddModal] = useState(false)
@@ -28,7 +26,7 @@ function TaskManager() {
       <div className='taskManager__container'>
         <button 
           onClick={() => setOpenAddModal(true)}>
-          Add task +
+          Chamar Locavan 
         </button>
         <div className='taskManager__tasks'>
 
@@ -39,6 +37,7 @@ function TaskManager() {
               completed={task.data.completed}
               title={task.data.title} 
               description={task.data.description}
+              
             />
           ))}
 

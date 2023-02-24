@@ -5,7 +5,7 @@ import EditTask from './EditTask'
 import { doc, updateDoc, deleteDoc} from "firebase/firestore";
 import {db} from '../../firebase'
 
-function Task({id, title, description, completed}) {
+function Task({id, title, description, completed, created}) {
 
   const [checked, setChecked] = useState(completed)
   const [open, setOpen] = useState({edit:false, view:false})
@@ -38,8 +38,22 @@ function Task({id, title, description, completed}) {
 
   return (
     <div className={`task ${checked && 'task--borderColor'}`}>
-      <div>
-        <input 
+      
+      <div className='task__body'>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        
+        
+        
+        <div className='task__buttons'>
+          <div className='task__deleteNedit'>
+            {/* <button 
+              className='task__editButton' 
+              onClick={() => setOpen({...open, edit : true})}>
+              Edit
+            </button> Butão de Editar Task*/}
+            <button className='task__deleteButton' onClick={handleDelete}>Recusar</button>
+            <input 
           id={`checkbox-${id}`} 
           className='checkbox-custom'
           name="checkbox" 
@@ -49,43 +63,34 @@ function Task({id, title, description, completed}) {
         <label 
           htmlFor={`checkbox-${id}`} 
           className="checkbox-custom-label" 
-          onClick={() => setChecked(!checked)} ></label>
-      </div>
-      <div className='task__body'>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <div className='task__buttons'>
-          <div className='task__deleteNedit'>
-            <button 
-              className='task__editButton' 
-              onClick={() => setOpen({...open, edit : true})}>
-              Edit
-            </button>
-            <button className='task__deleteButton' onClick={handleDelete}>Delete</button>
+          onClick={() => setChecked(!checked)} >Aceitar</label>
           </div>
-          <button 
+          {/* <button 
             onClick={() => setOpen({...open, view: true})}>
             View
-          </button>
+          </button> */}
         </div>
       </div>
 
       {open.view &&
         <TaskItem 
-          onClose={handleClose} 
+           
           title={title} 
-          description={description} 
-          open={open.view} />
+          description={description}
+          date={created} 
+          />
+          // Em caso de erro adicionar o codigo open={open.view} 
+          // Em caso de erro adicionar o codigo open={onClose={handleClose}} 
       }
 
-      {open.edit &&
+      {/* {open.edit &&
         <EditTask 
           onClose={handleClose} 
           toEditTitle={title} 
           toEditDescription={description} 
           open={open.edit}
           id={id} />
-      }
+      } */}
 
     </div>
   )

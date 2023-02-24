@@ -14,7 +14,7 @@ function AddTask({onClose, open}) {
     e.preventDefault()
     try {
       await addDoc(collection(db, 'tasks'), {
-        title: title,
+        title: "Nova Solicitação",
         description: description,
         completed: false,
         created: Timestamp.now()
@@ -26,19 +26,19 @@ function AddTask({onClose, open}) {
   }
 
   return (
-    <Modal modalLable='Add Task' onClose={onClose} open={open}>
+    <Modal modalLable='Confirmação de Solicitação' onClose={onClose} open={open}>
       <form onSubmit={handleSubmit} className='addTask' name='addTask'>
-        <input 
+        {/* <input 
           type='text' 
-          name='title' 
+          name='Nova Solicitação' 
           onChange={(e) => setTitle(e.target.value.toUpperCase())} 
           value={title}
-          placeholder='Enter title'/>
-        <textarea 
+          placeholder='Enter title'/> */}
+        {/* <textarea 
           onChange={(e) => setDescription(e.target.value)}
           placeholder='Enter task decription'
-          value={description}></textarea>
-        <button type='submit'>Done</button>
+          value={description}></textarea> */}
+        <button type='submit'>Chamar</button>
       </form> 
     </Modal>
   )

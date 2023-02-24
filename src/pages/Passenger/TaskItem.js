@@ -8,6 +8,7 @@ function TaskItem({onClose, open, title, description}) {
       <div className='taskItem'>
         <h2>{title}</h2>
         <p>{description}</p>
+
       </div>
     </Modal>
   )
