@@ -28,7 +28,7 @@ function TaskManager() {
           onClick={() => setOpenAddModal(true)}>
           Chamar Locavan 
         </button>
-        <div className='taskManager__tasks'>
+        {/* <div className='taskManager__tasks'>
 
           {tasks.map((task) => (
             <Task
@@ -38,7 +38,7 @@ function TaskManager() {
               title={task.data.title} 
               description={task.data.description}
               
-            />
+            /> */}
           ))}
 
         </div>

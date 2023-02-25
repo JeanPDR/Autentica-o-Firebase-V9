@@ -52,6 +52,7 @@ function Task({id, title, description, completed, created}) {
               onClick={() => setOpen({...open, edit : true})}>
               Edit
             </button> Butão de Editar Task*/}
+            <button className='task__deleteButton' onClick={() => setChecked(!checked)}>Aceitar</button>
             <button className='task__deleteButton' onClick={handleDelete}>Recusar</button>
             <input 
           id={`checkbox-${id}`} 
@@ -63,7 +64,7 @@ function Task({id, title, description, completed, created}) {
         <label 
           htmlFor={`checkbox-${id}`} 
           className="checkbox-custom-label" 
-          onClick={() => setChecked(!checked)} >Aceitar</label>
+          onClick={() => setChecked(!checked)} ></label> 
           </div>
           {/* <button 
             onClick={() => setOpen({...open, view: true})}>
